@@ -83,12 +83,12 @@ const productSchema = new mongoose.Schema(
   //   }
 );
 
-productSchema.pre("save", function (next) {
-  if (this.quantity == 0) {
-    this.status = "out-of-stock";
-  }
-  next();
-});
+// productSchema.pre("save", function (next) {
+//   if (this.quantity == 0) {
+//     this.status = "out-of-stock";
+//   }
+//   next();
+// });
 
 // productSchema.methods.logger = function () {
 //   console.log(`Product name is ${this.name}`);
