@@ -13,7 +13,7 @@ router
   .delete(usersController.deleteUser);
 
 router
-  .route("/:email")
+  .route("/email/:email")
   .get(usersController.getUserByEmail)
   .put(usersController.updateOrCreateUser);
 
