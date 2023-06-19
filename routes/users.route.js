@@ -11,6 +11,7 @@ router
   .route("/:id")
   .get(usersController.getUserById)
   .delete(usersController.deleteUser);
+  
 
 router
   .route("/email/:email")
