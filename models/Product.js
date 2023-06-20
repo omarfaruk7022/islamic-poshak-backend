@@ -19,14 +19,6 @@ const productSchema = new mongoose.Schema(
       required: [true, "Please enter product price"],
       min: [0, "Price cannot be less than 0"],
     },
-    unit: {
-      type: String,
-      required: [true, "Please enter product unit"],
-      enum: {
-        values: ["kg", "litre", "piece"],
-        message: "Unit is either: kg or piece or litre",
-      },
-    },
     quantity: {
       type: Number,
       required: [true, "Please enter product quantity"],
@@ -54,6 +46,10 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter product image"],
     },
+    addedBy :{
+      type: String,
+      required: [true, "Please enter addedBy"],
+    }
 
     // createdAt: {
     //   type: Date,
