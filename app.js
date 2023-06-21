@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
 const productRoute = require("./routes/product.route");
 const usersRoute = require("./routes/users.route");
 
+
 app.use("/api/product", productRoute);
 app.use("/api/users", usersRoute);
 
