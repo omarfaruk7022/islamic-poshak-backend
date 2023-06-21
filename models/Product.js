@@ -4,11 +4,10 @@ const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please enter product name"],
-      trim: [true, "Please enter product name"],
-      unique: [true, "Product name already exists"],
-      minLength: [3, "Minimum 3 characters required"],
-      maxLength: [100, "Maximum 100 characters allowed"],
+      // required: [true, "Please enter product name"],
+      // trim: [true, "Please enter product name"],
+      // minLength: [3, "Minimum 3 characters required"],
+      // maxLength: [100, "Maximum 100 characters allowed"],
     },
     description: {
       type: String,

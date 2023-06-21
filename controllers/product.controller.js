@@ -71,7 +71,6 @@ exports.deleteProduct = async (req, res, next) => {
 exports.createProduct = async (req, res, next) => {
   try {
     const result = await Product.create(req.body);
-    // result.logger();
     // const product = new Product(req.body);
 
     // const result = await product.save();
