@@ -16,7 +16,6 @@ const usersRoute = require("./routes/users.route");
 app.use("/api/product", productRoute);
 app.use("/api/users", usersRoute);
 
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
