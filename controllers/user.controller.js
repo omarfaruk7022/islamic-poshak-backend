@@ -1,3 +1,4 @@
+const Product = require("../models/Product");
 const Users = require("../models/Users");
 exports.getAllUsers = async (req, res, next) => {
   try {
@@ -75,7 +76,7 @@ exports.getUserByEmail = async (req, res, next) => {
       status: "success",
       data: result,
     });
-  } catch (error) { 
+  } catch (error) {
     res.status(404).json({
       status: "fail",
       message: "User not found",
@@ -106,3 +107,22 @@ exports.updateOrCreateUser = async (req, res, next) => {
     });
   }
 };
+
+exports.updateUserInfo = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const result = await Users.updateOne({ _id: id }, { $set: req.body });
+    res.status(200).json({
+      status: "success",
+      data: result,
+      message: "User's Role Updated successfully",
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "fail",
+      message: "User not found",
+      error: error.message,
+    });
+  }
+};
+

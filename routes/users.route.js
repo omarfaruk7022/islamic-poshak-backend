@@ -10,13 +10,12 @@ router
 router
   .route("/:id")
   .get(usersController.getUserById)
-  .delete(usersController.deleteUser);
-  
+  .delete(usersController.deleteUser)
+  .patch(usersController.updateUserInfo);
 
 router
   .route("/email/:email")
   .get(usersController.getUserByEmail)
   .put(usersController.updateOrCreateUser);
 
-  
 module.exports = router;
