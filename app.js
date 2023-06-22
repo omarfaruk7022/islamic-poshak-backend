@@ -6,12 +6,15 @@ const port = 5000 || process.env.PORT;
 app.use(cors());
 app.use(express.json());
 
+
+
 app.get("/", (req, res) => {
   res.send("Hello BMW!");
 });
 
 const productRoute = require("./routes/product.route");
 const usersRoute = require("./routes/users.route");
+const { default: mongoose } = require("mongoose");
 
 
 app.use("/api/product", productRoute);
