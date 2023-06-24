@@ -10,8 +10,7 @@
     {
       "src": "/(.*)",
       "dest": "/app.js"
-    },
-    { "src": "/api/product", "dest": "/routes/product.route.js" },
-    { "src": "/api/users", "dest": "/routes/users.route.js" }
-  ]
+    }
+  ],
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
 }
