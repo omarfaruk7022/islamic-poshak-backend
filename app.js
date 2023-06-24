@@ -17,8 +17,8 @@ const usersRoute = require("./routes/users.route");
 const { default: mongoose } = require("mongoose");
 
 
-app.use("/api/product", productRoute);
-app.use("/api/users", usersRoute);
+app.use("/product", productRoute);
+app.use("/users", usersRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
