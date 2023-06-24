@@ -78,6 +78,7 @@ const productSchema = new mongoose.Schema(
   //   }
 );
 
+
 // productSchema.pre("save", function (next) {
 //   if (this.quantity == 0) {
 //     this.status = "out-of-stock";
