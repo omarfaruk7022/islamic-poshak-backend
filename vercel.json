@@ -14,7 +14,7 @@
     },
     {
       "source": "/api/(.*)",
-      "destination": "/app.js"
+      "destination": "/routes/users.route.js"
     }
   ]
 }
