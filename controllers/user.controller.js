@@ -1,5 +1,6 @@
-const Product = require("../models/Product");
 const Users = require("../models/Users");
+
+
 exports.getAllUsers = async (req, res, next) => {
   try {
     const result = await Users.find({});
@@ -32,6 +33,7 @@ exports.getUserById = async (req, res, next) => {
   }
 };
 
+
 exports.deleteUser = async (req, res, next) => {
   try {
     const result = await Users.findByIdAndDelete(req.params.id);
@@ -47,6 +49,7 @@ exports.deleteUser = async (req, res, next) => {
     });
   }
 };
+
 
 exports.createUsers = async (req, res, next) => {
   try {
