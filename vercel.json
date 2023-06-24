@@ -11,7 +11,7 @@
       "src": "/(.*)",
       "dest": "/app.js"
     },
-    { "src": "/product", "dest": "/routes" },
-    { "src": "/users", "dest": "/routes" }
+    { "src": "/product", "dest": "/routes/product.route.js" },
+    { "src": "/users", "dest": "/routes/users.route.js" }
   ]
 }
