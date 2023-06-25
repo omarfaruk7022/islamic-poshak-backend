@@ -13,8 +13,8 @@
       "destination": "/app.js"
     },
     {
-      "source": "/api/users",
-      "destination": "/routes/users.route.js"
+      "source": "/api/(.*)",
+      "destination": "/app.js"
     }
   ]
 }
