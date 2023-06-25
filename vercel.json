@@ -12,7 +12,7 @@
       "dest": "/app.js"
     },
     {
-      "src": "/users",
+      "src": "/api/users",
       "dest": "/routes/users.route.js"
     }
   ]
