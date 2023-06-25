@@ -6,15 +6,16 @@
       "use": "@vercel/node"
     }
   ],
-
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/app.js"
+      "src": "/(.*)",
+      "dest": "/app.js"
     },
     {
-      "source": "/api/(.*)",
-      "destination": "/app.js"
+      "src": "/api/(.*)",
+      "dest": "/app.js"
     }
   ]
+
+  
 }
