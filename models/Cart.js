@@ -17,8 +17,10 @@ const cartSchema = new mongoose.Schema({
     type: String,
   },
   orderDate: {
-    type: Date,
-    default: Date.now,
+    type: String,
+  },
+  orderTime: {
+    type: String,
   },
   image: {
     type: String,
