@@ -29,6 +29,10 @@ const cartSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter email"],
   },
+  orderStatus: {
+    type: String,
+    default: "Pending",
+  },
 });
 
 const Cart = mongoose.model("Cart", cartSchema);
