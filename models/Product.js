@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema(
   {
+    category: {
+      type: String,
+    },
     name: {
       type: String,
       // required: [true, "Please enter product name"],
@@ -45,10 +48,10 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter product image"],
     },
-    addedBy :{
+    addedBy: {
       type: String,
       required: [true, "Please enter addedBy"],
-    }
+    },
 
     // createdAt: {
     //   type: Date,
@@ -77,7 +80,6 @@ const productSchema = new mongoose.Schema(
   //     timestamps: true,
   //   }
 );
-
 
 // productSchema.pre("save", function (next) {
 //   if (this.quantity == 0) {
