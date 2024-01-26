@@ -18,6 +18,4 @@ router
   .get(usersController.getUserByEmail)
   .put(usersController.updateOrCreateUser);
 
-  
-
 module.exports = router;

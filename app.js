@@ -13,12 +13,14 @@ app.get("/", (req, res) => {
 const productRoute = require("./routes/product.route");
 const usersRoute = require("./routes/users.route");
 const cartRoute = require("./routes/cart.router");
+const orderRoute = require("./routes/order.route");
 const testRoute = require("./routes/test.router");
 const { default: mongoose } = require("mongoose");
 
 app.use("/api/product", productRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/cart", cartRoute);
+app.use("/api/order", orderRoute);
 app.use("/api/test", testRoute);
 
 app.listen(port, () => {

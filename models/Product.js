@@ -7,6 +7,9 @@ const productSchema = new mongoose.Schema(
     },
     name: {
       type: String,
+      required: [true, "Please enter product name"],
+      unique:[true, "Product name already exists"],
+
       // required: [true, "Please enter product name"],
       // trim: [true, "Please enter product name"],
       // minLength: [3, "Minimum 3 characters required"],
@@ -40,8 +43,8 @@ const productSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: {
-        values: ["in-stock", "out-of-stock", "discontinued"],
-        message: "Status is either: in-stock or outOfStock or discontinued",
+        values: ["in-stock", "out-of-stock"],
+        message: "Status is either: in-stock or out-of-stock ",
       },
     },
     image: {
