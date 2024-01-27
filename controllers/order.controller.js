@@ -23,6 +23,7 @@ exports.getOrderByEmail = async (req, res, next) => {
       status: "success",
       data: result,
     });
+    console.log(result)
   } catch (error) {
     res.status(404).json({
       status: "fail",
@@ -79,7 +80,7 @@ exports.createOrder = async (req, res, next) => {
   } catch (error) {
     res.status(404).json({
       status: "fail",
-      message: "Cart not found",
+      message: "order not found",
       error: error.message,
     });
   }
