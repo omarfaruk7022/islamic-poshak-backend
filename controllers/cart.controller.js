@@ -32,7 +32,6 @@ exports.getCartByEmail = async (req, res, next) => {
   }
 };
 
-
 exports.updateCart = async (req, res, next) => {
   try {
     const cartId = req.params.id;
@@ -71,15 +70,15 @@ exports.deleteCart = async (req, res, next) => {
 
 exports.createCart = async (req, res, next) => {
   try {
-    const result = await Cart.create(req.body);
+    const newCart = await Cart.create(req.body);
     res.status(201).json({
       status: "success",
-      data: result,
+      data: newCart,
     });
   } catch (error) {
     res.status(404).json({
       status: "fail",
-      message: "Cart not found",
+      message: "Cart not created",
       error: error.message,
     });
   }

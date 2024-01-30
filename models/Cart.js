@@ -1,17 +1,19 @@
 const mongoose = require("mongoose");
 
 const cartSchema = new mongoose.Schema({
+  productId: {
+    type: String,
+  },
   name: {
     type: String,
   },
-  quantity: {
-    type: Number,
-  },
+
   price: {
     type: Number,
   },
-  deliveryAddress: {
-    type: String,
+  quantity: {
+    type: Number,
+    default: 1,
   },
   orderDate: {
     type: String,
@@ -25,10 +27,6 @@ const cartSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Please enter email"],
-  },
-  orderStatus: {
-    type: String,
-    default: "Pending",
   },
 });
 

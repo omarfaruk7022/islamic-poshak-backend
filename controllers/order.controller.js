@@ -36,9 +36,9 @@ exports.getOrderByEmail = async (req, res, next) => {
 
 exports.updateOrder = async (req, res, next) => {
   try {
-    const cartId = req.params.id;
+    const orderId = req.params.id;
     const updates = req.body;
-    const result = await Order.findByIdAndUpdate(cartId, updates, {
+    const result = await Order.findByIdAndUpdate(orderId, updates, {
       new: true,
     });
     res.status(200).json({

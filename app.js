@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 
 const productRoute = require("./routes/product.route");
 const usersRoute = require("./routes/users.route");
-const cartRoute = require("./routes/cart.router");
+const cartRoute = require("./routes/cart.route");
 const orderRoute = require("./routes/order.route");
 const testRoute = require("./routes/test.router");
 const { default: mongoose } = require("mongoose");

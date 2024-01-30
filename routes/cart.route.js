@@ -7,8 +7,10 @@ router
   .get(cartController.getAllCart)
   .post(cartController.createCart);
 
-router.route("/:id").delete(cartController.deleteCart)
-.patch(cartController.updateCart);
+router
+  .route("/:id")
+  .delete(cartController.deleteCart)
+  .patch(cartController.updateCart);
 
 router.route("/:email").get(cartController.getCartByEmail);
 
