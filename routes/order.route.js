@@ -11,8 +11,8 @@ router
   .route("/:id")
   .get(orderController.getOrderById)
   .delete(orderController.deleteOrder)
+
   .patch(orderController.updateOrder);
-  
 
 router.route("/email/:email").get(orderController.getOrderByEmail);
 
