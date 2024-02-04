@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
- 
   name: {
     type: String,
   },
@@ -25,7 +24,6 @@ const orderSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, "Please enter email"],
   },
   orderStatus: {
     type: String,
