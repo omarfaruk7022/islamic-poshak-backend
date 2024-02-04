@@ -1,8 +1,8 @@
 {
-  "name": "my-package",
+  "name": "islamic-poshak-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "engines": {
     "node": "18.x"
   },
