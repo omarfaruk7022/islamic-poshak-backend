@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const orderSchema = new mongoose.Schema({
+const orderSchema = new Schema({
   ordersId: String,
   orders: [
     {
@@ -17,6 +17,6 @@ const orderSchema = new mongoose.Schema({
   ],
 }, { versionKey: false });  // Exclude the version key from the schema
 
-const Order = mongoose.model('Order', orderSchema);
+const Order = model('Order', orderSchema);
 
-module.exports = Order;
+export default Order;

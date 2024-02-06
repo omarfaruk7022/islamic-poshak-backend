@@ -1,7 +1,6 @@
-const Users = require("../models/Users");
+import Users from "../models/Users.js";
 
-
-exports.getAllUsers = async (req, res, next) => {
+export const getAllUsers = async (req, res, next) => {
   try {
     const result = await Users.find({});
     res.status(200).json({
@@ -17,8 +16,7 @@ exports.getAllUsers = async (req, res, next) => {
   }
 };
 
-
-exports.getUserById = async (req, res, next) => {
+export const getUserById = async (req, res, next) => {
   try {
     const result = await Users.findById(req.params.id);
     res.status(200).json({
@@ -34,8 +32,7 @@ exports.getUserById = async (req, res, next) => {
   }
 };
 
-
-exports.deleteUser = async (req, res, next) => {
+export const deleteUser = async (req, res, next) => {
   try {
     const result = await Users.findByIdAndDelete(req.params.id);
     res.status(200).json({
@@ -51,8 +48,7 @@ exports.deleteUser = async (req, res, next) => {
   }
 };
 
-
-exports.createUsers = async (req, res, next) => {
+export const createUsers = async (req, res, next) => {
   try {
     const result = await Users.create(req.body);
     // result.logger();
@@ -72,7 +68,7 @@ exports.createUsers = async (req, res, next) => {
   }
 };
 
-exports.getUserByEmail = async (req, res, next) => {
+export const getUserByEmail = async (req, res, next) => {
   try {
     const email = req.params.email;
     const result = await Users.find({ email: email });
@@ -89,7 +85,7 @@ exports.getUserByEmail = async (req, res, next) => {
   }
 };
 
-exports.updateOrCreateUser = async (req, res, next) => {
+export const updateOrCreateUser = async (req, res, next) => {
   try {
     const result = await Users.findOneAndUpdate(
       { email: req.params.email },
@@ -112,13 +108,10 @@ exports.updateOrCreateUser = async (req, res, next) => {
   }
 };
 
-exports.updateUserInfo = async (req, res, next) => {
+export const updateUserInfo = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const result = await Users.updateOne(
-      { _id: id },
-      { $set: req.body }
-    );
+    const result = await Users.updateOne({ _id: id }, { $set: req.body });
     res.status(200).json({
       status: "success",
       data: result,
@@ -132,10 +125,3 @@ exports.updateUserInfo = async (req, res, next) => {
     });
   }
 };
-
-
-
-
-
-
-

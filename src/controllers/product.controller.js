@@ -1,9 +1,8 @@
-const Order = require("../models/Order");
-const { v4: uuidv4 } = require("uuid");
+import Product from "../models/Product.js";
 
-exports.getAllOrder = async (req, res, next) => {
+export const getAllProducts = async (req, res, next) => {
   try {
-    const result = await Order.find({});
+    const result = await Product.find({});
     res.status(200).json({
       status: "success",
       data: result,
@@ -11,34 +10,34 @@ exports.getAllOrder = async (req, res, next) => {
   } catch (error) {
     res.status(404).json({
       status: "fail",
-      message: "Cart not found",
+      message: "Product not found",
       error: error.message,
     });
   }
 };
 
-exports.getOrderByEmail = async (req, res, next) => {
+export const getProductById = async (req, res, next) => {
   try {
-    const result = await Order.find({ email: req.params.email });
+    const result = await Product.findById(req.params.id);
     res.status(200).json({
       status: "success",
       data: result,
     });
-    console.log(result);
   } catch (error) {
     res.status(404).json({
       status: "fail",
-      message: "Cart not found",
+      message: "Product not found",
       error: error.message,
     });
   }
 };
 
-exports.updateOrder = async (req, res, next) => {
+// update a product using put
+export const updateProductById = async (req, res, next) => {
   try {
-    const orderId = req.params.id;
+    const productId = req.params.id;
     const updates = req.body;
-    const result = await Order.findByIdAndUpdate(orderId, updates, {
+    const result = await Product.findByIdAndUpdate(productId, updates, {
       new: true,
     });
     res.status(200).json({
@@ -48,15 +47,15 @@ exports.updateOrder = async (req, res, next) => {
   } catch (error) {
     res.status(404).json({
       status: "fail",
-      message: "Cart not found",
+      message: "Product not found",
       error: error.message,
     });
   }
 };
 
-exports.deleteOrder = async (req, res, next) => {
+export const deleteProduct = async (req, res, next) => {
   try {
-    const result = await Order.findByIdAndDelete(req.params.id);
+    const result = await Product.findByIdAndDelete(req.params.id);
     res.status(200).json({
       status: "success",
       data: result,
@@ -64,24 +63,20 @@ exports.deleteOrder = async (req, res, next) => {
   } catch (error) {
     res.status(404).json({
       status: "fail",
-      message: "Cart not found",
+      message: "Product not found",
       error: error.message,
     });
   }
 };
 
-exports.createOrder = async (req, res, next) => {
+export const createProduct = async (req, res, next) => {
   try {
-    const orderData = req.body;
-    const ordersId = uuidv4(); // Generate a new UUID for the order
+    const result = await Product.create(req.body);
+    // const product = new Product(req.body);
 
-    const result = await Order.create({
-      ordersId: ordersId,
-      orders: orderData.data,
-    });
-
+    // const result = await product.save();
     res.status(201).json({
-      status: "success", 
+      status: "success",
       data: result,
     });
   } catch (error) {

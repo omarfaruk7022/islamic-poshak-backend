@@ -1,6 +1,6 @@
-const Cart = require("../models/Cart");
+import Cart from "../models/Cart.js";
 
-exports.getAllCart = async (req, res, next) => {
+export const getAllCart = async (req, res, next) => {
   try {
     const result = await Cart.find({});
     res.status(200).json({
@@ -16,7 +16,7 @@ exports.getAllCart = async (req, res, next) => {
   }
 };
 
-exports.getCartByEmail = async (req, res, next) => {
+export const getCartByEmail = async (req, res, next) => {
   try {
     const result = await Cart.find({ email: req.params.email });
     res.status(200).json({
@@ -32,7 +32,7 @@ exports.getCartByEmail = async (req, res, next) => {
   }
 };
 
-exports.updateCart = async (req, res, next) => {
+export const updateCart = async (req, res, next) => {
   try {
     const cartId = req.params.id;
     const updates = req.body;
@@ -52,7 +52,7 @@ exports.updateCart = async (req, res, next) => {
   }
 };
 
-exports.deleteCart = async (req, res, next) => {
+export const deleteCart = async (req, res, next) => {
   try {
     const result = await Cart.findByIdAndDelete(req.params.id);
     res.status(200).json({
@@ -68,7 +68,7 @@ exports.deleteCart = async (req, res, next) => {
   }
 };
 
-exports.createCart = async (req, res, next) => {
+export const createCart = async (req, res, next) => {
   try {
     const newCart = await Cart.create(req.body);
     res.status(201).json({

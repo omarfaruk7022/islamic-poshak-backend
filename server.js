@@ -1,32 +1,20 @@
-const mongoose = require("mongoose");
-mongoose.set('strictQuery', true)
-require("dotenv").config();
-const colors = require("colors");
+import app from "./app.js";
+import mongoose from "mongoose";
+import config from "./src/config/index.js";
+import color from "colors";
 
+async function server() {
+  try {
+    await mongoose.connect(process.env.DATABASE_URL_MAIN).then(() => {
+      console.log("Database connection successful".cyan.bold);
+    });
 
-const app = require("./app");
+    app.listen(config.port, () => {
+      console.log(`App is running on port ${config.port}`.yellow.bold);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-// database connection
-mongoose.connect(process.env.DATABASE_LOCAL).then(() => {
-  console.log("Database connection successful".cyan.bold);
-});
-
-// function verifyJWT(req, res, next) {
-//   const authHeader = req.headers.authorization;
-//   if (!authHeader) {
-//     return res.status(401).send({ message: "UnAuthorized access" });
-//   }
-//   const token = authHeader.split(" ")[1];
-//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, function (err, decoded) {
-//     if (err) {
-//       return res.status(403).send({ message: "Forbidden access" });
-//     }
-//     req.decoded = decoded;
-//     next();
-//   });
-// }
-// server
-const port = process.env.PORT || 8080;
-app.listen(port, () => {
-  console.log(`App is running on port ${port}`.yellow.bold);
-});
+server().catch((err) => console.log(err));
