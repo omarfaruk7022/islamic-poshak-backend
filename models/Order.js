@@ -1,38 +1,22 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
- 
-  name: {
-    type: String,
-  },
-  quantity: {
-    type: Number,
-  },
-  price: {
-    type: Number,
-  },
-  deliveryAddress: {
-    type: String,
-  },
-  orderDate: {
-    type: String,
-  },
-  orderTime: {
-    type: String,
-  },
-  image: {
-    type: String,
-  },
-  email: {
-    type: String,
-    required: [true, "Please enter email"],
-  },
-  orderStatus: {
-    type: String,
-    default: "Pending",
-  },
-});
+  ordersId: String,
+  orders: [
+    {
+      name: String,
+      quantity: Number,
+      price: Number,
+      deliveryAddress: String,
+      orderDate: String,
+      orderTime: String,
+      image: String,
+      email: String,
+      orderStatus: String,
+    },
+  ],
+}, { versionKey: false });  // Exclude the version key from the schema
 
-const Order = mongoose.model("Order", orderSchema);
+const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;
