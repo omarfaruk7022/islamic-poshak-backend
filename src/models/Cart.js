@@ -27,7 +27,7 @@ const cartSchema = new Schema({
     type: String,
     required: [true, "Please enter email"],
   },
-});
+}, { versionKey: false });
 
 const Cart = model("Cart", cartSchema);
 

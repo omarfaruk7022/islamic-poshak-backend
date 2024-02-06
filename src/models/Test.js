@@ -22,7 +22,7 @@ const testSchema = new Schema({
   remarks: {
     type: String,
   },
-});
+}, { versionKey: false });
 
 const Test = model("Test", testSchema);
 

@@ -77,7 +77,7 @@ const productSchema = new Schema(
     //     _id: mongoose.Schema.Types.ObjectId,
     //   },
     // ],
-  }
+  }, { versionKey: false }
 
   //   {
   //     timestamps: true,
