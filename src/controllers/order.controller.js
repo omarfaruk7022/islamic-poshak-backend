@@ -34,6 +34,22 @@ export const getOrderByEmail = async (req, res, next) => {
   }
 };
 
+exports.getOrderById = async (req, res, next) => {
+  try {
+    const result = await Order.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: result,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "fail",
+      message: "order not found",
+      error: error.message,
+    });
+  }
+};
+
 export const updateOrder = async (req, res, next) => {
   try {
     const orderId = req.params.id;
