@@ -7,9 +7,13 @@ router
   .get(orderController.getAllOrder)
   .post(orderController.createOrder);
 
-router.route("/:id").delete(orderController.deleteOrder)
-.patch(orderController.updateOrder);
+router
+  .route("/:id")
+  .get(orderController.getOrderById)
+  .delete(orderController.deleteOrder)
 
-router.route("/:email").get(orderController.getOrderByEmail);
+  .patch(orderController.updateOrder);
+
+router.route("/email/:email").get(orderController.getOrderByEmail);
 
 module.exports = router;
