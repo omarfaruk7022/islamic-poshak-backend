@@ -34,7 +34,7 @@ export const getOrderByEmail = async (req, res, next) => {
   }
 };
 
-exports.getOrderById = async (req, res, next) => {
+export const getOrderById = async (req, res, next) => {
   try {
     const result = await Order.findById(req.params.id);
     res.status(200).json({

@@ -2,12 +2,8 @@
   "name": "islamic-poshak-backend",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
-  "main": "index.js",
-  "type": "module",
-=======
   "main": "server.js",
->>>>>>> 55d937f69b2d807bfef4e7b31ef164ddcb76b842
+  "type": "module",
   "engines": {
     "node": "18.x"
   },
