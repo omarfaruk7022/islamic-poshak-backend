@@ -1,6 +1,6 @@
-const Product = require("../models/Product");
+import Product from "../models/Product.js";
 
-exports.getAllProducts = async (req, res, next) => {
+export const getAllProducts = async (req, res, next) => {
   try {
     const result = await Product.find({});
     res.status(200).json({
@@ -16,7 +16,7 @@ exports.getAllProducts = async (req, res, next) => {
   }
 };
 
-exports.getProductById = async (req, res, next) => {
+export const getProductById = async (req, res, next) => {
   try {
     const result = await Product.findById(req.params.id);
     res.status(200).json({
@@ -33,7 +33,7 @@ exports.getProductById = async (req, res, next) => {
 };
 
 // update a product using put
-exports.updateProductById = async (req, res, next) => {
+export const updateProductById = async (req, res, next) => {
   try {
     const productId = req.params.id;
     const updates = req.body;
@@ -53,7 +53,7 @@ exports.updateProductById = async (req, res, next) => {
   }
 };
 
-exports.deleteProduct = async (req, res, next) => {
+export const deleteProduct = async (req, res, next) => {
   try {
     const result = await Product.findByIdAndDelete(req.params.id);
     res.status(200).json({
@@ -69,7 +69,7 @@ exports.deleteProduct = async (req, res, next) => {
   }
 };
 
-exports.createProduct = async (req, res, next) => {
+export const createProduct = async (req, res, next) => {
   try {
     const result = await Product.create(req.body);
     // const product = new Product(req.body);

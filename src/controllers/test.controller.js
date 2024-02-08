@@ -1,6 +1,6 @@
-const Test = require("../models/Test");
+import Test from "../models/Test.js";
 
-exports.getAllTest = async (req, res, next) => {
+export const getAllTest = async (req, res, next) => {
   try {
     const result = await Test.find({});
     res.status(200).json({
@@ -16,7 +16,7 @@ exports.getAllTest = async (req, res, next) => {
   }
 };
 
-exports.createTest = async (req, res, next) => {
+export const createTest = async (req, res, next) => {
   try {
     const result = await Test.create(req.body);
     res.status(201).json({

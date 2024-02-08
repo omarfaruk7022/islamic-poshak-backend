@@ -1,6 +1,7 @@
-const Order = require("../models/Order");
+import Order from "../models/Order.js"; 
+import { v4 as uuidv4 } from "uuid";
 
-exports.getAllOrder = async (req, res, next) => {
+export const getAllOrder = async (req, res, next) => {
   try {
     const result = await Order.find({});
     res.status(200).json({
@@ -16,7 +17,7 @@ exports.getAllOrder = async (req, res, next) => {
   }
 };
 
-exports.getOrderByEmail = async (req, res, next) => {
+export const getOrderByEmail = async (req, res, next) => {
   try {
     const result = await Order.find({ email: req.params.email });
     res.status(200).json({
@@ -33,7 +34,7 @@ exports.getOrderByEmail = async (req, res, next) => {
   }
 };
 
-exports.getOrderById = async (req, res, next) => {
+export const getOrderById = async (req, res, next) => {
   try {
     const result = await Order.findById(req.params.id);
     res.status(200).json({
@@ -49,7 +50,7 @@ exports.getOrderById = async (req, res, next) => {
   }
 };
 
-exports.updateOrder = async (req, res, next) => {
+export const updateOrder = async (req, res, next) => {
   try {
     const orderId = req.params.id;
     const updates = req.body;
@@ -69,7 +70,7 @@ exports.updateOrder = async (req, res, next) => {
   }
 };
 
-exports.deleteOrder = async (req, res, next) => {
+export const deleteOrder = async (req, res, next) => {
   try {
     const result = await Order.findByIdAndDelete(req.params.id);
     res.status(200).json({
@@ -85,17 +86,24 @@ exports.deleteOrder = async (req, res, next) => {
   }
 };
 
-exports.createOrder = async (req, res, next) => {
+export const createOrder = async (req, res, next) => {
   try {
-    const result = await Order.create(req.body);
+    const orderData = req.body;
+    const ordersId = uuidv4(); // Generate a new UUID for the order
+
+    const result = await Order.create({
+      ordersId: ordersId,
+      orders: orderData.data,
+    });
+
     res.status(201).json({
       status: "success",
       data: result,
     });
   } catch (error) {
-    res.status(404).json({
+    res.status(400).json({
       status: "fail",
-      message: "order not found",
+      message: "Please enter valid data",
       error: error.message,
     });
   }

@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const testSchema = new mongoose.Schema({
-  customername: {
+const testSchema = new Schema({
+  customerName: {
     type: String,
   },
   contactNumber: {
@@ -10,20 +10,20 @@ const testSchema = new mongoose.Schema({
   deliveryAddress: {
     type: String,
   },
-  referencename: {
+  referenceName: {
     type: String,
   },
   deliveryAddress: {
     type: String,
   },
-  allproducts: {
+  allProducts: {
     type: Array,
   },
   remarks: {
     type: String,
   },
-});
+}, { versionKey: false });
 
-const Test = mongoose.model("Test", testSchema);
+const Test = model("Test", testSchema);
 
-module.exports = Test;
+export default Test;
