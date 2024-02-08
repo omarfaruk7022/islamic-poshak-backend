@@ -1,4 +1,5 @@
 const Order = require("../models/Order");
+const { v4: uuidv4 } = require("uuid");
 
 exports.getAllOrder = async (req, res, next) => {
   try {
@@ -85,17 +86,40 @@ exports.deleteOrder = async (req, res, next) => {
   }
 };
 
+// exports.createOrder = async (req, res, next) => {
+//   try {
+//     const result = await Order.create(req.body);
+//     res.status(201).json({
+//       status: "success",
+//       data: result,
+//     });
+//   } catch (error) {
+//     res.status(404).json({
+//       status: "fail",
+//       message: "order not found",
+//       error: error.message,
+//     });
+//   }
+// };
+
 exports.createOrder = async (req, res, next) => {
   try {
-    const result = await Order.create(req.body);
+    const orderData = req.body;
+    const ordersId = uuidv4(); // Generate a new UUID for the order
+
+    const result = await Order.create({
+      ordersId: ordersId,
+      orders: orderData.data,
+    });
+
     res.status(201).json({
       status: "success",
       data: result,
     });
   } catch (error) {
-    res.status(404).json({
+    res.status(400).json({
       status: "fail",
-      message: "order not found",
+      message: "Please enter valid data",
       error: error.message,
     });
   }
