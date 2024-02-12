@@ -9,6 +9,7 @@ router
 
 router
   .route("/:id")
+  .put(cartController.updateCartById)
   .delete(cartController.deleteCart)
   .patch(cartController.updateCart);
 
