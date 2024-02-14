@@ -108,9 +108,14 @@ exports.createOrder = async (req, res, next) => {
     const ordersId = uuidv4(); // Generate a new UUID for the order
 
     const result = await Order.create({
+      email: orderData.data[0].email,
+      deliveryAddress: orderData.data[0].deliveryAddress,
+      orderDate: orderData.data[0].orderDate,
+      orderTime: orderData.data[0].orderTime,
       ordersId: ordersId,
       orders: orderData.data,
     });
+    console.log(result);
 
     res.status(201).json({
       status: "success",
