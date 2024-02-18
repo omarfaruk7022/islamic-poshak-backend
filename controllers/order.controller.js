@@ -44,7 +44,7 @@ exports.getOrderById = async (req, res, next) => {
   } catch (error) {
     res.status(404).json({
       status: "fail",
-      message: "order not found",
+      message: "Order not found",
       error: error.message,
     });
   }
@@ -109,6 +109,7 @@ exports.createOrder = async (req, res, next) => {
 
     const result = await Order.create({
       email: orderData.data[0].email,
+      phone: orderData.data[0].phone,
       deliveryAddress: orderData.data[0].deliveryAddress,
       orderDate: orderData.data[0].orderDate,
       orderTime: orderData.data[0].orderTime,

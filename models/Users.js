@@ -10,13 +10,15 @@ const usersSchema = new mongoose.Schema({
   password: {
     type: Number,
   },
+  phone: {
+    type: String,
+  },
   role: {
     type: String,
     enum: ["admin", "user"],
     default: "user",
   },
-}); 
-
+});
 
 const Users = mongoose.model("Users", usersSchema);
 
