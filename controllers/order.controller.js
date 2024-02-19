@@ -70,7 +70,7 @@ exports.updateOrder = async (req, res, next) => {
   }
 };
 
-exports.deleteOrder = async (req, res, next) => {
+exports.deleteOrder = async (req, res) => {
   try {
     const result = await Order.findByIdAndDelete(req.params.id);
     res.status(200).json({
@@ -80,7 +80,7 @@ exports.deleteOrder = async (req, res, next) => {
   } catch (error) {
     res.status(404).json({
       status: "fail",
-      message: "Cart not found",
+      message: "Order not found",
       error: error.message,
     });
   }
@@ -114,7 +114,9 @@ exports.createOrder = async (req, res, next) => {
       orderDate: orderData.data[0].orderDate,
       orderTime: orderData.data[0].orderTime,
       ordersId: ordersId,
+      customerName: orderData.data[0].customerName,
       orders: orderData.data,
+      orderStatus: orderData.data[0].orderStatus,
     });
     console.log(result);
 

@@ -6,11 +6,12 @@ const orderSchema = new mongoose.Schema({
   deliveryAddress: String,
   orderDate: String,
   orderTime: String,
+  customerName: String,
+  phone: String,
+  orderStatus: String,
   orders: [
     {
-      name: {
-        type: String,
-      },
+      name: String,
       quantity: Number,
       price: Number,
       phone: String,
@@ -18,10 +19,11 @@ const orderSchema = new mongoose.Schema({
       orderDate: String,
       orderTime: String,
       image: String,
+      customerName: String,
       email: String,
       orderStatus: {
         type: String,
-        default: "Pending",
+        default: "pending",
       },
     },
   ],
