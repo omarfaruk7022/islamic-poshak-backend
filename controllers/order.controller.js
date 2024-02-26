@@ -1,5 +1,6 @@
 const Order = require("../models/Order");
 const { v4: uuidv4 } = require("uuid");
+const middleware = require("../middleware/index");
 
 exports.getAllOrder = async (req, res, next) => {
   try {
@@ -103,6 +104,7 @@ exports.deleteOrder = async (req, res) => {
 // };
 
 exports.createOrder = async (req, res, next) => {
+  
   try {
     const orderData = req.body;
     const ordersId = uuidv4(); // Generate a new UUID for the order
@@ -118,7 +120,6 @@ exports.createOrder = async (req, res, next) => {
       orders: orderData.data,
       orderStatus: orderData.data[0].orderStatus,
     });
-    console.log(result);
 
     res.status(201).json({
       status: "success",

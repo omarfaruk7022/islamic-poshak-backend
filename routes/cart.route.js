@@ -7,12 +7,21 @@ router
   .get(cartController.getAllCart)
   .post(cartController.createCart);
 
+
 router
   .route("/:id")
   .put(cartController.updateCartById)
   .delete(cartController.deleteCart)
   .patch(cartController.updateCart);
 
-router.route("/:email").get(cartController.getCartByEmail);
+router
+  .route("/:email")
+  .get(cartController.getCartByEmail)
+  .delete(cartController.deleteCartByEmail);
+  
+
+router
+  .route("/email/:email")
+  .delete(cartController.deleteCartByEmail);
 
 module.exports = router;

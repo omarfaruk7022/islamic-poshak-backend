@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const orderController = require("../controllers/order.controller");
-
 router
   .route("/")
   .get(orderController.getAllOrder)
@@ -15,5 +14,6 @@ router
   .patch(orderController.updateOrder);
 
 router.route("/email/:email").get(orderController.getOrderByEmail);
+// how can i use the middleware
 
 module.exports = router;

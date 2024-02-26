@@ -1,5 +1,5 @@
+const middleware = require("../middleware");
 const Users = require("../models/Users");
-
 
 exports.getAllUsers = async (req, res) => {
   try {
@@ -17,7 +17,6 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-
 exports.getUserById = async (req, res, next) => {
   try {
     const result = await Users.findById(req.params.id);
@@ -34,7 +33,6 @@ exports.getUserById = async (req, res, next) => {
   }
 };
 
-
 exports.deleteUser = async (req, res, next) => {
   try {
     const result = await Users.findByIdAndDelete(req.params.id);
@@ -50,7 +48,6 @@ exports.deleteUser = async (req, res, next) => {
     });
   }
 };
-
 
 exports.createUsers = async (req, res, next) => {
   try {
@@ -115,10 +112,7 @@ exports.updateOrCreateUser = async (req, res, next) => {
 exports.updateUserInfo = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const result = await Users.updateOne(
-      { _id: id },
-      { $set: req.body }
-    );
+    const result = await Users.updateOne({ _id: id }, { $set: req.body });
     res.status(200).json({
       status: "success",
       data: result,
@@ -132,10 +126,3 @@ exports.updateUserInfo = async (req, res, next) => {
     });
   }
 };
-
-
-
-
-
-
-

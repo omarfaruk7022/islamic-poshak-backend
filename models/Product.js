@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "Please enter product name"],
-      unique:[true, "Product name already exists"],
+      unique: [true, "Product name already exists"],
 
       // required: [true, "Please enter product name"],
       // trim: [true, "Please enter product name"],
@@ -40,6 +40,10 @@ const productSchema = new mongoose.Schema(
         message: "Quantity must be an integer",
       },
     },
+    discount: {
+      type: Number,
+      default: 0,
+    },
     status: {
       type: String,
       enum: {
@@ -53,7 +57,7 @@ const productSchema = new mongoose.Schema(
     },
     addedBy: {
       type: String,
-      required: [true, "Please enter addedBy"],
+      required: [true, "Please enter who added the product"],
     },
 
     // createdAt: {

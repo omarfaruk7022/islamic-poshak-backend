@@ -52,7 +52,7 @@ exports.updateCart = async (req, res, next) => {
   }
 };
 
-exports.updateCartById = async (req, res, next) => { 
+exports.updateCartById = async (req, res, next) => {
   try {
     const cartId = req.params.id;
     const updates = req.body;
@@ -70,12 +70,27 @@ exports.updateCartById = async (req, res, next) => {
       error: error.message,
     });
   }
-
-}
+};
 
 exports.deleteCart = async (req, res, next) => {
   try {
     const result = await Cart.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: result,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "fail",
+      message: "Cart not found",
+      error: error.message,
+    });
+  }
+};
+
+exports.deleteCartByEmail = async (req, res, next) => {
+  try {
+    const result = await Cart.deleteMany({ email: req.params.email });
     res.status(200).json({
       status: "success",
       data: result,

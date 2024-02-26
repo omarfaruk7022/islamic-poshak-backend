@@ -8,7 +8,11 @@ const orderSchema = new mongoose.Schema({
   orderTime: String,
   customerName: String,
   phone: String,
-  orderStatus: String,
+  orderStatus: {
+    type: String,
+    default: "pending",
+  },
+
   orders: [
     {
       name: String,
