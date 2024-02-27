@@ -27,6 +27,16 @@ const cartSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please enter email"],
   },
+  discount: {
+    type: Number,
+    default: 0,
+  },
+  long: {
+    type: String,
+  },
+  body: {
+    type: String,
+  },
 });
 
 const Cart = mongoose.model("Cart", cartSchema);

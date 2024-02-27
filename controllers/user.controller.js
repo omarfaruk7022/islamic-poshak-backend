@@ -77,6 +77,7 @@ exports.getUserByEmail = async (req, res, next) => {
       status: "success",
       data: result,
     });
+    
   } catch (error) {
     res.status(404).json({
       status: "fail",

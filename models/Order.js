@@ -25,6 +25,9 @@ const orderSchema = new mongoose.Schema({
       image: String,
       customerName: String,
       email: String,
+      discount: Number,
+      long: String,
+      body: String,
       orderStatus: {
         type: String,
         default: "pending",
