@@ -12,6 +12,10 @@ const orderSchema = new mongoose.Schema({
     type: String,
     default: "pending",
   },
+  review: {
+    status: Boolean,
+    review: String,
+  },
 
   orders: [
     {
@@ -31,6 +35,10 @@ const orderSchema = new mongoose.Schema({
       orderStatus: {
         type: String,
         default: "pending",
+      },
+      review: {
+        status: Boolean,
+        review: String,
       },
     },
   ],

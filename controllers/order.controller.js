@@ -104,7 +104,6 @@ exports.deleteOrder = async (req, res) => {
 // };
 
 exports.createOrder = async (req, res, next) => {
-  
   try {
     const orderData = req.body;
     const ordersId = uuidv4(); // Generate a new UUID for the order
@@ -119,6 +118,11 @@ exports.createOrder = async (req, res, next) => {
       customerName: orderData.data[0].customerName,
       orders: orderData.data,
       orderStatus: orderData.data[0].orderStatus,
+      review: {
+        status: orderData.data[0].review.status,
+        review: orderData.data[0].review.review,
+      
+      }
     });
 
     res.status(201).json({
