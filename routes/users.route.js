@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const usersController = require("../controllers/user.controller");
+const middleware = require("../middleware");
 
-router
-  .route("/")
-  .get(usersController.getAllUsers)
-  .post(usersController.createUsers);
+router.get("/", middleware.decodeToken, usersController.getAllUsers);
+router.route("/").post(usersController.createUsers);
+// .get(usersController.getAllUsers)
 
 router
   .route("/:id")

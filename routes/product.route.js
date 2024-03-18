@@ -1,13 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const productController = require("../controllers/product.controller");
+const middleware = require("../middleware/index");
 
+router.post("/", middleware.decodeToken, productController.createProduct);
+
+router.route("/").get(productController.getAllProducts);
 router
-  .route("/")
-  .get(productController.getAllProducts)
-  .post(productController.createProduct)
-
-router 
   .route("/:id")
   .get(productController.getProductById)
   .delete(productController.deleteProduct)
