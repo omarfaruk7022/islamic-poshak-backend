@@ -5,6 +5,14 @@ const reviewsSchema = new mongoose.Schema({
   review: String,
   status: Boolean,
   orderId: String,
+  date: {
+    type: String,
+    default: Date.now,
+  },
+  time: {
+    type: String,
+    default: new Date().toLocaleTimeString(),
+  },
 });
 
 const Reviews = mongoose.model("Reviews", reviewsSchema);

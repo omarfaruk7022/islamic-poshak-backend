@@ -31,3 +31,20 @@ exports.createGallery = async (req, res, next) => {
     });
   }
 };
+
+
+exports.deleteGallery = async (req, res, next) => {
+  try {
+    const result = await Gallery.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: result,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "fail",
+      message: "Gallery not deleted",
+      error: error.message,
+    });
+  }
+}
