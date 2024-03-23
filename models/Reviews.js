@@ -13,6 +13,7 @@ const reviewsSchema = new mongoose.Schema({
     type: String,
     default: new Date().toLocaleTimeString(),
   },
+  products: [],
 });
 
 const Reviews = mongoose.model("Reviews", reviewsSchema);
